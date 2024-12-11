@@ -1,0 +1,128 @@
+/* Custom Stylesheet */
+
+/* Set background image for the whole page */
+body {
+    background-image: url('https://img.freepik.com/free-photo/abstract-luxury-gradient-blue-background-smooth-dark-blue-with-black-vignette-studio-banner_1258-54368.jpg?semt=ais_hybrid');
+    background-size: cover; /* Ensure the image covers the whole page */
+    background-position: center center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent repeating the image */
+    font-family: Arial, sans-serif;
+    color: #ffffff; /* Light color for text */
+    margin: 0;
+    padding: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Strong shadow for readability */
+}
+
+/* Header Section */
+header h1 {
+    color: #ffffff; /* White for header text */
+    font-size: 3rem;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9); /* Strong shadow for visibility */
+    margin-top: 20px;
+}
+
+/* Navigation Bar */
+.navbar {
+    margin-bottom: 20px;
+    background-color: rgba(0, 0, 0, 0.8); /* Dark, semi-transparent navbar */
+}
+
+.navbar a.nav-link {
+    color: #ffffff; /* White for navigation links */
+}
+
+.navbar a.nav-link:hover {
+    color: #00aaff; /* Light blue on hover */
+}
+
+/* Section Titles */
+section h2 {
+    color: #ffffff; /* White for section titles */
+    font-size: 2rem;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9); /* Strong shadow for visibility */
+    margin-bottom: 15px;
+}
+
+/* Paragraph Text */
+section p {
+    font-size: 1.2rem;
+    color: #ffffff; /* White for readability */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Shadow for readability */
+    line-height: 1.6;
+}
+
+/* List Styles */
+ul.list-group li {
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black for contrast */
+    border: none;
+    color: #ffffff; /* White text */
+    margin-bottom: 5px;
+}
+
+/* Footer Styling */
+footer {
+    background-color: rgba(0, 0, 0, 0.8); /* Dark footer */
+    padding: 20px 0;
+    color: #ffffff; /* Light color */
+}
+
+footer a {
+    color: #ffffff; /* White links */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    color: #00aaff; /* Light blue on hover */
+}
+
+/* Custom Image Styles */
+#image img {
+    width: 40%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* YouTube Video Styles */
+#video iframe {
+    margin-top: 60px;
+    border-radius: 5px;
+    border: 3px solid rgba(255, 255, 255, 0.8); /* White border for contrast */
+}
+
+/* Tableau Graph Container */
+#tableau {
+    text-align: center; /* Center-align content */
+    margin: 50px auto; /* Add space around the graph */
+    padding: 20px; /* Add padding inside the container */
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black for better contrast */
+    border-radius: 10px; /* Rounded corners for a modern look */
+    max-width: 90%; /* Ensure it doesn't take up the entire screen width */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7); /* Subtle shadow for polished effect */
+}
+
+/* Responsive iframe inside Tableau Container */
+#tableau iframe {
+    width: 100%; /* Full width of the container */
+    max-width: 800px; /* Limit the maximum width */
+    height: 500px; /* Adjust height as needed */
+    border: 3px solid rgba(255, 255, 255, 0.8); /* White border for contrast */
+}
+
+/* Add margins to sections for better spacing */
+section {
+    margin-bottom: 50px;
+}
+
+/* Ensure headings and text are visible against the background */
+h2, h3, h4, h5, h6 {
+    color: #ffffff; /* White for headings */
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9); /* Strong shadow for visibility */
+}
+
+p, ul, li {
+    color: #ffffff; /* White for paragraph text and list items */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Shadow for readability */
+}

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Word Guess Game</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+    .container {
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 5px;
+      margin-bottom: 20px;
+    }
+    .cell {
+      width: 50px;
+      height: 50px;
+      border: 2px solid #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+    }
+    .cell.correct {
+      background-color: #2ecc71;
+      color: #fff;
+    }
+    .cell.present {
+      background-color: #f1c40f;
+      color: #fff;
+    }
+    .cell.absent {
+      background-color: #e74c3c;
+      color: #fff;
+    }
+    input {
+      width: 100px;
+      text-transform: uppercase;
+      padding: 5px;
+      margin-bottom: 10px;
+      font-size: 1rem;
+      text-align: center;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: #3498db;
+      color: #fff;
+      margin-top: 10px;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
+    .back-button {
+      display: block;
+      margin-bottom: 15px;
+      text-decoration: none;
+      color: #3498db;
+      font-size: 1rem;
+    }
+    .back-button:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Back Button -->
+    <a href="project.html" class="back-button">Back to Main Page</a>
+    <h1>Word Guess Game</h1>
+    <p>Guess the 5-letter word!</p>
+    <div class="grid" id="grid"></div>
+    <input type="text" id="guess" maxlength="5" placeholder="Enter a word">
+    <button onclick="checkGuess()">Submit</button>
+    <p id="feedback"></p>
+  </div>
+
+  <script>
+    const words = ['apple', 'stone', 'crane', 'plane', 'grape'];
+    const targetWord = words[Math.floor(Math.random() * words.length)];
+    let attempts = 0;
+    const maxAttempts = 6;
+
+    const grid = document.getElementById('grid');
+
+    function createGrid() {
+      for (let i = 0; i < maxAttempts * 5; i++) {
+        const cell = document.createElement('div');
+        cell.classList.add('cell');
+        grid.appendChild(cell);
+      }
+    }
+
+    createGrid();
+
+    function checkGuess() {
+      const guess = document.getElementById('guess').value.toLowerCase();
+      if (guess.length !== 5) {
+        alert('Please enter a 5-letter word.');
+        return;
+      }
+
+      if (attempts >= maxAttempts) {
+        document.getElementById('feedback').innerText = 'Game over! The word was: ' + targetWord;
+        return;
+      }
+
+      let row = document.querySelectorAll('.cell');
+      const start = attempts * 5;
+
+      for (let i = 0; i < 5; i++) {
+        const cell = row[start + i];
+        cell.innerText = guess[i];
+
+        if (guess[i] === targetWord[i]) {
+          cell.classList.add('correct');
+        } else if (targetWord.includes(guess[i])) {
+          cell.classList.add('present');
+        } else {
+          cell.classList.add('absent');
+        }
+      }
+
+      if (guess === targetWord) {
+        document.getElementById('feedback').innerText = 'Congratulations! You guessed the word!';
+        document.querySelectorAll('.cell').forEach(cell => {
+          cell.style.pointerEvents = 'none';
+        });
+      }
+
+      attempts++;
+      document.getElementById('guess').value = '';
+    }
+  </script>
+</body>
+</html>
